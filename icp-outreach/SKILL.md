@@ -82,11 +82,33 @@ Edge cases:
 
 Use `mcp__claude_ai_Gmail__create_draft` with these structural rules:
 
-**Subject** — 6-9 words, references the deliverable not the sender. Examples:
-- `Built this for you — 10 ABM accounts ready for [product/play name]`
-- `[N] [segment] operators showing live [competitor] displacement signals`
+### HARD PUNCTUATION RULE — read this first
 
-**Body** — 60-100 words, structured as:
+**Never use em-dashes (`—`), en-dashes (`–`), or double hyphens (`--`) in any drafted email — neither subject nor body.** These read as "AI wrote this" to a human eye and instantly destroy the credibility of the warm-receipt line.
+
+This rule overrides every example in the rest of this skill file. If you see an em-dash in an example below, rewrite it before drafting.
+
+**Allowed substitutes** for the dash break:
+- **Comma**: "Maya, the .com to .ai migration you ran at Gladly..."
+- **Period**: "Maya. The .com to .ai migration you ran at Gladly..."
+- **Colon**: "One thing about the .com to .ai migration: it was a brand-as-product move..."
+- **Parentheses**: "The .com to .ai migration you ran (a brand-as-product move) is exactly..."
+- **Restructure the sentence** so the aside becomes a separate sentence
+
+**Single hyphens inside compound words are fine** (`cold-call`, `ABM-ready`, `Zendesk-anchored`, `brand-as-product`, `top-of-house`, `.com-to-.ai`). The rule applies only to dashes used as sentence-break punctuation.
+
+**Arrows (`→`) are fine** — they're not dashes and they're a deliberate visual anchor for the link line.
+
+Before sending the draft to Gmail, scan the full subject + body for `—`, `–`, and `--`. If any appear, rewrite that sentence.
+
+---
+
+**Subject**: 6-9 words, references the deliverable not the sender. Examples (em-dash-free):
+- `Built this for you, 10 ABM accounts ready for [product/play name]`
+- `[N] [segment] operators showing live [competitor] displacement signals`
+- `Q3 pipeline: 10 luxury D2C accounts ready for your AEs`
+
+**Body**: 60-100 words, structured as:
 
 1. **Warm-receipt line** (1 sentence) — names something specific and verifiable from the recipient's career history (prior employer + notable result, or notable move into current role). Never "Hope this finds you well" or "Welcome aboard"-style openers. Reference: user's `feedback_email_opener` memory.
 
@@ -98,13 +120,13 @@ Use `mcp__claude_ai_Gmail__create_draft` with these structural rules:
 
 **Why this order**: the warm-receipt earns 3-5 seconds of attention. Spending that attention on the link (vs. on buildup paragraphs) maximizes click-through. Readers who click never see paragraph 3 anyway. Readers who don't click read paragraph 3 as "should I have clicked?" — that's when the proof works hardest.
 
-Example structure:
+Example structure (no em-dashes, no double hyphens, no en-dashes):
 
-> Maya — the `.com → .ai` domain migration you ran at Gladly was a brand-as-product move most CX AI marketing playbooks miss. Built this for you to match the bar.
+> Maya, the `.com → .ai` domain migration you ran at Gladly was a brand-as-product move most CX AI marketing playbooks miss. Built this for you to match the bar.
 >
 > **→ https://maya-williams-gladly-icp.netlify.app**
 >
-> 10 luxury & premium D2C operators with live Zendesk/Kustomer displacement signals. Whatnot leads (Sumble "Great" fit + IT Engineer hiring under a "Digital Transformation" project). The RealReal installed a new CEO + CBO + SVP Strategy in 9 months. Each account ships with the buying group, the play, and a draft opener your AEs can ship today.
+> 10 luxury & premium D2C operators with live Zendesk and Kustomer displacement signals. Whatnot leads (Sumble "Great" fit, IT Engineer hiring under a "Digital Transformation" project). The RealReal installed a new CEO, CBO, and SVP Strategy in 9 months. Each account ships with the buying group, the play, and a draft opener your AEs can ship today.
 >
 > 20-second scan. Worth a chat if any are on the sales team's radar?
 
@@ -249,7 +271,9 @@ These are the patterns that make the skill work — apply them by default:
 
 7. **Constructed-email fallbacks should be transparent.** When using a guessed `firstname.lastname@company.tld` (vs. Sumble-enriched), surface it in the per-recipient log and end-of-batch summary so the user knows which drafts need extra verification before sending. Don't silently hide the guess.
 
-8. **Same-company batches reveal talent clusters.** Multiple recipients sharing a prior employer (e.g. three GRIN alumni in a Gladly batch) is a strong signal of an acquisition or coordinated talent move. Surface this back to the user — it's often sales intelligence in its own right.
+8. **Same-company batches reveal talent clusters.** Multiple recipients sharing a prior employer (e.g. three GRIN alumni in a Gladly batch) is a strong signal of an acquisition or coordinated talent move. Surface this back to the user, it's often sales intelligence in its own right.
+
+9. **Em-dashes and double hyphens are banned in email content.** This is the single hardest rule in the skill. Recipients pattern-match on `—` and `--` as "AI sent this" within the first half-second of reading. The warm-receipt line is the only thing earning the click, and a dash kills it. Pre-send scan: grep the draft body and subject for `—`, `–`, `--`. If any match, rewrite the sentence using a comma, period, colon, parens, or restructure. The earlier sections of this file are the source of truth; this heuristic is the backstop. (See "HARD PUNCTUATION RULE" at the top of Step 5.)
 
 ---
 
