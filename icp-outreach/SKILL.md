@@ -123,6 +123,14 @@ Before sending the draft to Gmail, scan the full subject + body for `—`, `–`
 
 4. **Low-friction CTA** (1 sentence) — a sortable yes/no, not a calendar push. Examples: "Worth a chat on which to pursue first?" / "Useful for [team they own]?" / "Want the per-account model?"
 
+5. **Signature** (exactly 3 lines, no variation):
+   ```
+   Eric
+   Account Executive | Sumble
+   Book a 30 min: https://calendly.com/eric-sumble/30min
+   ```
+   The Calendly link is in the signature, NOT in the CTA. The CTA stays sortable ("worth a chat?") so the recipient can mentally answer yes/no without commitment; if they say yes, the signature gives them the booking path. Mixing the two (a CTA that says "grab time on my Calendly") feels pushy and conversion drops.
+
 **Why this order**: the warm-receipt earns 3-5 seconds of attention. Spending that attention on the link maximizes click-through. The "Three to lead with" structure delivers the synthesis in the email itself, so even a recipient who never clicks walks away with three named, justified contacts. That is the deliverable. The full brief at the URL is the supporting evidence; the email body IS the playbook.
 
 Example structure (no em-dashes, no double hyphens, no en-dashes):
@@ -140,6 +148,10 @@ Example structure (no em-dashes, no double hyphens, no en-dashes):
 > **Royal Caribbean** (Call Center Operations Analyst job requires BOTH Avaya AND Genesys today). Their **Senior Manager, Unified Communication and Collaboration** in Miramar FL is the IT Ops entry. Parallel-stack consolidation, the textbook Cisco-era pattern you ran for years.
 >
 > Worth a chat on which to pursue first?
+>
+> Eric
+> Account Executive | Sumble
+> Book a 30 min: https://calendly.com/eric-sumble/30min
 
 Set `replyToMessageId` to null (cold draft, not a reply). No CC/BCC unless the user has specified one in their memory (check for things like Salesforce BCC drop address).
 
