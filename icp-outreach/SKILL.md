@@ -108,27 +108,38 @@ Before sending the draft to Gmail, scan the full subject + body for `—`, `–`
 - `[N] [segment] operators showing live [competitor] displacement signals`
 - `Q3 pipeline: 10 luxury D2C accounts ready for your AEs`
 
-**Body**: 60-100 words, structured as:
+**Body**: 130-160 words, structured as:
 
 1. **Warm-receipt line** (1 sentence) — names something specific and verifiable from the recipient's career history (prior employer + notable result, or notable move into current role). Never "Hope this finds you well" or "Welcome aboard"-style openers. Reference: user's `feedback_email_opener` memory.
 
-2. **The Netlify URL on its own line, immediately after the warm-receipt** — formatted as `**→ https://<slug>.netlify.app**`. The link comes BEFORE the proof, not after. When the reader sees "Built this for you" they should see the link in the same eye-stroke — no scrolling, no hunting. The link IS the hook's payoff.
+2. **The Netlify URL on its own line, immediately after the warm-receipt** — formatted as `**→ https://<slug>.netlify.app**`. The link comes BEFORE the proof, not after. When the reader sees "Built this for you" they should see the link in the same eye-stroke. No scrolling, no hunting. The link IS the hook's payoff.
 
-3. **What we built + 2-3 specific brief findings** (2-3 sentences) — name the top account with its headline data point, then 1-2 more. This is the proof of depth that makes the click worthwhile if they didn't already click. Keep it tight.
+3. **"Three to lead with:"** — then 3 named accounts, each formatted as:
+   - **Account name** (1 specific signal in parentheses).
+   - "Contact **[Full Name, Title]**."
+   - 1 sentence explaining WHY this specific person is the right entry. The WHY should tie to a concrete attribute: new in role (typically <12 months = high buying window), recent move, owns a stated mandate, named in the job posting, or sits at the intersection of the buying signal and a verified function.
+   
+   Do not just name accounts and data points. Always pair each account with one specific named contact + the reason that person (not the account in general) is the right entry. If a top-5 buying group is too noisy to name a confident individual (e.g. a global IDN with hundreds of facility-level CXOs), name a specific role/title or team that's actively hiring instead ("Their Senior Manager, UC&C in Miramar FL is the IT Ops entry"). Never leave the contact step ambiguous.
 
-4. **Low-friction CTA** (1 sentence) — a sortable yes/no, not a calendar push. Examples: "Worth a chat if any of the 10 are already on your radar?" / "Useful for [team they own]?" / "Want the per-account model?"
+4. **Low-friction CTA** (1 sentence) — a sortable yes/no, not a calendar push. Examples: "Worth a chat on which to pursue first?" / "Useful for [team they own]?" / "Want the per-account model?"
 
-**Why this order**: the warm-receipt earns 3-5 seconds of attention. Spending that attention on the link (vs. on buildup paragraphs) maximizes click-through. Readers who click never see paragraph 3 anyway. Readers who don't click read paragraph 3 as "should I have clicked?" — that's when the proof works hardest.
+**Why this order**: the warm-receipt earns 3-5 seconds of attention. Spending that attention on the link maximizes click-through. The "Three to lead with" structure delivers the synthesis in the email itself, so even a recipient who never clicks walks away with three named, justified contacts. That is the deliverable. The full brief at the URL is the supporting evidence; the email body IS the playbook.
 
 Example structure (no em-dashes, no double hyphens, no en-dashes):
 
-> Maya, the `.com → .ai` domain migration you ran at Gladly was a brand-as-product move most CX AI marketing playbooks miss. Built this for you to match the bar.
+> Andy, your run at Cisco leading $5.5B in Collaboration and Contact Center GTM means you already know what these 10 accounts look like from the inside out.
 >
-> **→ https://maya-williams-gladly-icp.netlify.app**
+> **→ https://andy-dignan-five9-icp.netlify.app**
 >
-> 10 luxury & premium D2C operators with live Zendesk and Kustomer displacement signals. Whatnot leads (Sumble "Great" fit, IT Engineer hiring under a "Digital Transformation" project). The RealReal installed a new CEO, CBO, and SVP Strategy in 9 months. Each account ships with the buying group, the play, and a draft opener your AEs can ship today.
+> Three to lead with:
 >
-> 20-second scan. Worth a chat if any are on the sales team's radar?
+> **Visa** (297 Genesys-anchored job posts across 77 teams). Contact **Aaron Bearce, SVP and Global Head of Procurement**. 8 months in the seat, and year one for a new CPO is when vendor spend gets consolidated.
+>
+> **Humana** (Senior Cloud Solutions Engineer Contact Center role tagged "Cloud Cost Optimization, Generative AI, Cloud Migration"). Contact **David McGettigan, SVP and COO Technology**. 4 months in the role, no legacy platform commitments, owns the cost-optimization mandate.
+>
+> **Royal Caribbean** (Call Center Operations Analyst job requires BOTH Avaya AND Genesys today). Their **Senior Manager, Unified Communication and Collaboration** in Miramar FL is the IT Ops entry. Parallel-stack consolidation, the textbook Cisco-era pattern you ran for years.
+>
+> Worth a chat on which to pursue first?
 
 Set `replyToMessageId` to null (cold draft, not a reply). No CC/BCC unless the user has specified one in their memory (check for things like Salesforce BCC drop address).
 
@@ -274,6 +285,16 @@ These are the patterns that make the skill work — apply them by default:
 8. **Same-company batches reveal talent clusters.** Multiple recipients sharing a prior employer (e.g. three GRIN alumni in a Gladly batch) is a strong signal of an acquisition or coordinated talent move. Surface this back to the user, it's often sales intelligence in its own right.
 
 9. **Em-dashes and double hyphens are banned in email content.** This is the single hardest rule in the skill. Recipients pattern-match on `—` and `--` as "AI sent this" within the first half-second of reading. The warm-receipt line is the only thing earning the click, and a dash kills it. Pre-send scan: grep the draft body and subject for `—`, `–`, `--`. If any match, rewrite the sentence using a comma, period, colon, parens, or restructure. The earlier sections of this file are the source of truth; this heuristic is the backstop. (See "HARD PUNCTUATION RULE" at the top of Step 5.)
+
+10. **Named contact + WHY beats account-only data.** The email body's job is not to show off how much Sumble data you found. It's to deliver the synthesis: which 3 accounts, who specifically to call at each, and why that person (not the org in general). The brief at the URL is the deep evidence; the email IS the playbook. When picking the named contact, prefer in this order:
+    1. **New-in-role buyers** (less than 12 months in seat, especially less than 6) — they're rebuilding stack, no legacy commitments
+    2. **Owners of an explicitly stated mandate** in their title or recent announcement (Cost Optimization, Digital Transformation, AI, Cloud Migration, etc.)
+    3. **Long-tenure operators** at orgs where decision velocity matters (a 10-year operator = the actual decision-maker, not the new CIO who's still onboarding)
+    4. **Cross-functional roles** that bridge the buying signal and a verified function (a "Chief Digital and Information Officer" is more actionable than "CIO + CDO listed separately")
+    
+    If the top-5 buying-group data is too noisy to name an individual with confidence (typical for global IDNs with hundreds of facility-level CXOs surfacing first), name a specific role/team/location that's actively hiring instead. Never leave the contact step ambiguous with phrases like "the right person at X" or "someone in their CX org."
+
+11. **Selecting the "three to lead with" set is curation, not ranking.** Pick the three accounts where the contact + WHY story is sharpest, not just the top 3 by Sumble score. A score-26 account with a brand-new CIO and a stated cost-optimization mandate beats a score-41 account with a noisy global buying group. The brief still surfaces all 10 ranked; the email surfaces the 3 the recipient should act on first.
 
 ---
 
